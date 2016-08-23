@@ -1,5 +1,5 @@
 {
-  "name": "djey40/photogallery",
+  "name": "sapphirehead/photogallery",
   "require": {
     "phpmailer/phpmailer": "^5.2",
     "smarty/smarty": "~3.1",
@@ -7,7 +7,7 @@
     },
   "authors": [
     {
-      "name": "Djey",
+      "name": "sapphirehead",
       "email": "Djey35@yandex.ru"
     }
   ]
