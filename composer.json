@@ -1,0 +1,14 @@
+{
+  "name": "djey40/photogallery",
+  "require": {
+    "phpmailer/phpmailer": "^5.2",
+    "smarty/smarty": "~3.1",
+    "phpunit/phpunit": "5.5.x-dev"
+    },
+  "authors": [
+    {
+      "name": "Djey",
+      "email": "Djey35@yandex.ru"
+    }
+  ]
+}

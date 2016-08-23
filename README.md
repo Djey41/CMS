@@ -1,2 +1,1 @@
-# CMS
-New
+Photo gallery made on php, used Linda Course.
