@@ -58,14 +58,12 @@ fabric.properties
  ########################################################################################################
 
  # My settings
-/public/images/*
-/public/prewiev/*
-/public/mytemplates_c/*
-/public/Smartemplates/*
-/vendor/*
-!/vendor/composer.lock
-!/vendor/composer.json
+images/
+prewiev/
+mytemplates_c/
+Smartemplates/
+/vendor/
 
-/logs/*
-/closed/admincontrollers/mytemplates_c/*
+logs/
+#/closed/admincontrollers/mytemplates_c/*
 
