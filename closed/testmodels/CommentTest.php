@@ -55,10 +55,4 @@ class CommentTest extends \PHPUnit_Framework_TestCase
     {
         $this->assertTrue(is_array($this->comm->findCommentsOnForCurrent(2)));
     }
-
-//    protected function onNotSuccessfulTest(\Exception $e)
-//    {
-//        print __METHOD__ . "\n";
-//        throw $e;
-//    }
 }
