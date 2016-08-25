@@ -89,7 +89,7 @@ namespace Models;
             $res = self::$stmt->execute();
             self::confirmQuery($res);
             static::$clean_id = null;
-            return $res;
+            return (bool) $res;
         }
 
 
