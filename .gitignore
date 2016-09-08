@@ -61,8 +61,8 @@ fabric.properties
 images/
 prewiev/
 mytemplates_c/
-/public/Smartemplates/
-!/public/Smartemplates/mytemplates/
+Smartemplates/
+!Smartemplates/mytemplates/
 /vendor/
 # temp
 /create_DB.php
