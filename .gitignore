@@ -62,7 +62,10 @@ images/
 prewiev/
 mytemplates_c/
 Smartemplates/
+!Smartemplates/mytemplates/
 /vendor/
+/create_DB.php
+/Docs/
 
 logs/
 #/closed/admincontrollers/mytemplates_c/*
