@@ -36,4 +36,4 @@ $smarty = new SmartyClass();
 $smarty->assign('message', $message);
 $smarty->assign('photos', $photos);
 $smarty->assign('pagination', $pagination);
-$smarty->display('C:\OpenServer\domains\photogallery\smartemplates\list_photos.tpl');
+$smarty->display('C:\OpenServer\domains\photogallery\closed\smartemplates\list_photos.tpl');

@@ -62,4 +62,4 @@ try {
 $smarty = new SmartyClass();
 $smarty->assign('mail', $propertys_obj);
 $smarty->assign('message', $message);
-$smarty->display('C:\OpenServer\domains\photogallery\smartemplates\mail_settings.tpl');
+$smarty->display('C:\OpenServer\domains\photogallery\closed\smartemplates\mail_settings.tpl');

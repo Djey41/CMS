@@ -66,4 +66,4 @@ try {
 $smarty = new SmartyClass();
 $smarty->assign('params', $params);
 $smarty->assign('message', $message);
-$smarty->display('C:\OpenServer\domains\photogallery\smartemplates\display_settings.tpl');
+$smarty->display('C:\OpenServer\domains\photogallery\closed\smartemplates\display_settings.tpl');

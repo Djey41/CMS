@@ -68,4 +68,4 @@ $smarty = new SmartyClass();
 $smarty->assign('reg', $propertys_obj);
 $smarty->assign('username', $username);
 $smarty->assign('message', $message);
-$smarty->display('C:\OpenServer\domains\photogallery\smartemplates\registration.tpl');
+$smarty->display('C:\OpenServer\domains\photogallery\closed\smartemplates\registration.tpl');

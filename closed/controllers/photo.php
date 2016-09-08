@@ -82,4 +82,4 @@ $smarty->assign('body', $body);
 $smarty->assign('message', $message);// тут ошибки комментов их надо показывать юзеру
 $smarty->assign('pagination', $pagination);
 $smarty->assign('comments', $comments);
-$smarty->display('C:\OpenServer\domains\photogallery\smartemplates\photo.tpl');
+$smarty->display('C:\OpenServer\domains\photogallery\closed\smartemplates\photo.tpl');

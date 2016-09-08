@@ -77,4 +77,4 @@ $smarty = new SmartyClass();
 $smarty->assign('chang', $found_user);
 $smarty->assign('username', $username);
 $smarty->assign('message', $message);
-$smarty->display('C:\OpenServer\domains\photogallery\smartemplates\chang_pass.tpl');
+$smarty->display('C:\OpenServer\domains\photogallery\closed\smartemplates\chang_pass.tpl');

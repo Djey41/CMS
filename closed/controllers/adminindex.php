@@ -16,6 +16,6 @@ if (!$session->isLoggedIn()) { redirectTo("login.php"); }
 
 $smarty = new SmartyClass();
 $smarty->assign('message', $message);
-$smarty->display('C:\OpenServer\domains\photogallery\smartemplates\adminindex.tpl');
+$smarty->display('C:\OpenServer\domains\photogallery\closed\smartemplates\adminindex.tpl');
 
 //if (isset(CoreDatabase::$db)) { CoreDatabase::$db->closeConnection(); }
