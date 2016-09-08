@@ -8,7 +8,7 @@
 
 namespace closed\testmodels;
 
-use Models\Pagination;
+use models\Pagination;
 class PaginationTest extends \PHPUnit_Framework_TestCase
 {
     private $pag_obj;

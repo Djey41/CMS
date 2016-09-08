@@ -5,37 +5,37 @@
  * Date: 03.05.2016
  * Time: 20:51
  */
-use Models\ {
+use models\ {
        Session,
        Photograph,
        SmartyClass,
-       ModelsPDOException,
-       ModelsException,
+       ExeptionPDOMy,
+       ExeptionMy,
        MyTranslit
 };
 
-require_once ("../../initialize.php");
+require_once("../../index.php");
 
 $session = new Session();
 if (!$session->isLoggedIn()) { redirectTo("login.php"); }
 try {
  if (empty($_GET['id'])) {
-    throw new ModelsException("ID фотографии не был обнаружен.");
+    throw new ExeptionMy("ID фотографии не был обнаружен.");
 }
 
     $photoup = Photograph::findById(escapeIntValue($_GET['id']));
     if (!$photoup) {
-        throw new ModelsException("Изображение {$photoup->filename} не было найдено.");
+        throw new ExeptionMy("Изображение {$photoup->filename} не было найдено.");
     }
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $photoup->caption = escapeValue($_POST['caption']);
         if (preg_match('/[^a-zA-Zа-яА-ЯёЁ0-9\s]+/u', $photo->caption)) {
-            throw new ModelsException("Для названия возоможен выбор любых букв и цифр (без учёта регистра, без 
+            throw new ExeptionMy("Для названия возоможен выбор любых букв и цифр (без учёта регистра, без 
             спецсимволов)");
         }
         $alt = escapeValue($_POST['alt']);
         if (preg_match('/[^a-zA-Zа-яА-ЯёЁ0-9_\s]+/u', $alt)) {
-            throw new ModelsException("Для тега возоможен выбор любых (кириллица автоматически транслитерируется) букв 
+            throw new ExeptionMy("Для тега возоможен выбор любых (кириллица автоматически транслитерируется) букв 
             и цифр (без учёта регистра, без спецсимволов)");
         } else {
             MyTranslit::translitFromDB();
@@ -48,10 +48,10 @@ try {
         $caption = "";
         $alt = "";
     }
-} catch (ModelsPDOException $e) {
+} catch (ExeptionPDOMy $e) {
     $session->message($e->getMessage());
     redirectTo("adminindex.php");
-} catch (ModelsException $e) {
+} catch (ExeptionMy $e) {
     $session->message($e->getMessage());
     redirectTo("list_photos.php");
 }

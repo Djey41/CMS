@@ -1,9 +1,9 @@
 <?php
 
-use Models\PHPMailerClass;
-use Models\ModelsException;
+use models\PHPMailerClass;
+use models\ExeptionMy;
 
-require_once('modelsexeption.php');
+require_once('ExeptionMy.php');
 
 /**
  *@param $value
@@ -35,14 +35,14 @@ function escapeIntValue($durty_int)
 /**
  * @param string $value
  * @return string
- * @throws ModelsException
+ * @throws ExeptionMy
  */
 function validateValueForEmail(string $value)
 {
     if (filter_var($value, FILTER_VALIDATE_EMAIL)) {
         return $value;
     } else {
-        throw new ModelsException ('E-mail не может так выглядеть');
+        throw new ExeptionMy ('E-mail не может так выглядеть');
     }
 }
 /**
@@ -84,7 +84,7 @@ function outputMessage(string $message="")
  * @param string $logfile
  * @param string $action
  * @param string $message
- * @throws ModelsException
+ * @throws ExeptionMy
  */
 function logAction(string $logfile, string $action, string $message="")
 {
@@ -95,10 +95,10 @@ function logAction(string $logfile, string $action, string $message="")
             fwrite($handle, $content);
             fclose($handle);
         } else {
-            throw new ModelsException("Не удалось открыть файл для записи.");
+            throw new ExeptionMy("Не удалось открыть файл для записи.");
         }
     } else {
-        throw new ModelsException("Файл не существует.");
+        throw new ExeptionMy("Файл не существует.");
     }
 }
 
@@ -109,7 +109,7 @@ function logAction(string $logfile, string $action, string $message="")
  * @param string $dt
  * @param string $action
  * @param string $message
- * @throws ModelsException
+ * @throws ExeptionMy
  */
 function tryToSendMessageToPost(string $action, string $message, string $dt=null)
 {
@@ -153,6 +153,7 @@ function getExtens(string $tmpname)
 }
 
 /**
+ * TO DO: would be array
  * @param string $str_color
  * @return int
  */
@@ -177,8 +178,29 @@ function getCodeColor(string $str_color)
         case 'yellow':
             $hex_color = 0xFFFF00;
             break;
+        case 'orange':
+            $hex_color = 0xFF6600;
+            break;
+        case 'crimson':
+            $hex_color = 0xCC0033;
+            break;
+        case 'purple':
+            $hex_color = 0xCC00FF;
+            break;
+        case 'lilac':
+            $hex_color = 0x9966FF;
+            break;
+        case 'cyan':
+            $hex_color = 0x00FFFF;
+            break;
+        case 'pink':
+            $hex_color = 0xFF99CC;
+            break;
+        case 'gray':
+            $hex_color = 0x999999;
+            break;
         default:
-            $hex_color = 0xFFFFFF;
+            $hex_color = 0xFFFFFF;// white
             break;
     endswitch;
     return $hex_color;

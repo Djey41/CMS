@@ -6,15 +6,15 @@
  * Time: 23:49
  */
 
-use Models\ {
+use models\ {
        SmartyClass,
        User,
        Session,
-       ModelsPDOException,
-       ModelsException
+       ExeptionPDOMy,
+       ExeptionMy
 };
 
-require_once ("../../initialize.php");
+require_once("../../index.php");
 
 $session = new Session();
 $message = $session->message();
@@ -26,11 +26,11 @@ try {
             $first_name = escapeValue($_POST['first_name']);
             $last_name = escapeValue($_POST['last_name']);
             if (!preg_match('/^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$/', $username)) {
-                throw new ModelsException("Для логина возоможен выбор только из  латиницы (регистронезависимо) и цифр 
+                throw new ExeptionMy("Для логина возоможен выбор только из  латиницы (регистронезависимо) и цифр 
                 (всего 2-20 символов)");
             }
         if (!preg_match('/(?=^.{8,}$)(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s)[0-9a-zA-Z!?@#$%^&*()]*$/',  $password)) {
-                throw new ModelsException("Для пароля неоходима латиница обязателен верхний и нижний регистр и цифры 
+                throw new ExeptionMy("Для пароля неоходима латиница обязателен верхний и нижний регистр и цифры 
                 и какой-нибудь из этих символов: !?@#$%^&  (всего минимум 8 символов)");
         }
         $reg_obj = new User();
@@ -40,10 +40,10 @@ try {
                     $propertys_obj->saveDB();
                     redirectTo("adminindex.php");
                 } else {
-                    throw new ModelsException("Такой логин или пароль уже существует!");
+                    throw new ExeptionMy("Такой логин или пароль уже существует!");
                 }
         } else {
-            throw new ModelsException("Пароли не совпадают");
+            throw new ExeptionMy("Пароли не совпадают");
         }
     } else {
         $propertys_obj = new User();
@@ -53,10 +53,10 @@ try {
         $propertys_obj->first_name = "";
         $propertys_obj->last_name = "";
     }
-} catch (ModelsPDOException $e) {
+} catch (ExeptionPDOMy $e) {
     $session->message($e->getMessage());
     redirectTo("adminindex.php");
-} catch (ModelsException $e) {
+} catch (ExeptionMy $e) {
     $session->message($e->getMessage());
     redirectTo("registration.php");
 }

@@ -8,8 +8,8 @@
 
 namespace closed\testmodels;
 
-use Models\Session;
-use Models\User;
+use models\Session;
+use models\User;
 class SessionTest extends \PHPUnit_Framework_TestCase
 {
     private $stub;

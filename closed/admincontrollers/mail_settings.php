@@ -5,15 +5,15 @@
  * Date: 12.05.2016
  * Time: 22:34
  */
-use Models\ {
+use models\ {
        SmartyClass,
        PHPMailerClass,
        Session,
-       ModelsPDOException,
-       ModelsException
+       ExeptionPDOMy,
+       ExeptionMy
 };
 
-require_once("../../initialize.php");
+require_once("../../index.php");
 
 $session = new Session();
 if (!$session->isLoggedIn()) { redirectTo("login.php"); }
@@ -48,10 +48,10 @@ try {
         $propertys_obj->recipient = "";// от кого
         $propertys_obj->header = "";// главный заголовок (титул)
     }
-} catch (ModelsPDOException $e) {
+} catch (ExeptionPDOMy $e) {
     $session->message($e->getMessage());
     redirectTo("adminindex.php");
-} catch (ModelsException $e) {
+} catch (ExeptionMy $e) {
     $session->message($e->getMessage());
     redirectTo("mail_settings.php");
 }

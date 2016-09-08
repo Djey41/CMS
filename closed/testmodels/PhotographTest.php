@@ -8,9 +8,9 @@
 
 namespace closed\testmodels;
 
-use Models\UploadException;
+use models\ExeptionUploadMy;
 use \PHPUnit\Framework\TestCase;
-use Models\Photograph;
+use models\Photograph;
 
 class PhotographTest extends TestCase
 {
@@ -48,7 +48,7 @@ class PhotographTest extends TestCase
     public function testAttachFileTrowExeption()
     {
         $this->stub->method('attachFile')
-            ->will($this->throwException(new UploadException(0)));
+            ->will($this->throwException(new ExeptionUploadMy(0)));
         $this->stub->attachFile([]);
     }
     public function testImagePath()

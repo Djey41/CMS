@@ -1,30 +1,30 @@
 <?php
-use Models\ {
+use models\ {
        Session,
        Comment,
-       ModelsPDOException,
-       ModelsException
+       ExeptionPDOMy,
+       ExeptionMy
 };
 
-require_once ("../../initialize.php");
+require_once("../../index.php");
 
 $session = new Session();
 if (!$session->isLoggedIn()) { redirectTo("login.php"); }
 	try {
   if (empty($_GET['id'])) {
-  	throw new ModelsException("ID данного комментария не был обнаружен.");
+  	throw new ExeptionMy("ID данного комментария не был обнаружен.");
   }
 
     if (!$comment = Comment::findById($_GET['id'])) {
-        throw new ModelsException("Данный комментарий невозможно удалить.");
+        throw new ExeptionMy("Данный комментарий невозможно удалить.");
     }
     $comment->delete("id");
     redirectTo("comments.php?id={$comment->photograph_id}");
 
-} catch (ModelsPDOException $e) {
+} catch (ExeptionPDOMy $e) {
     $session->message($e->getMessage());
     redirectTo("adminindex.php");
-} catch (ModelsException $e) {
+} catch (ExeptionMy $e) {
     $session->message($e->getMessage());
     redirectTo("adminindex.php");
 }

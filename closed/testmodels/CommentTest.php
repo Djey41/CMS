@@ -8,8 +8,8 @@
 
 namespace closed\testmodels;
 
-use Models\Comment;
-use Models\Pagination;
+use models\Comment;
+use models\Pagination;
 
 class CommentTest extends \PHPUnit_Framework_TestCase
 {

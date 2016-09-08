@@ -1,17 +1,17 @@
 <?php
-use Models\ {
+use models\ {
         Session,
         Photograph,
         Comment,
         SmartyClass,
         Rank,
         Pagination,
-        ModelsException,
-        ModelsPDOException
+        ExeptionMy,
+        ExeptionPDOMy
 };
 
-require_once("../initialize.php");
-require_once("../closed/models/modelsexeption.php");
+require_once("../index.php");
+require_once("../closed/models/ExeptionMy.php");
 
 $session = new Session();
 $message = $session->message();
@@ -22,11 +22,11 @@ try {
     } elseif(empty($_GET['id'])) {
         $id = $_SESSION['one_ph_id'];
     } else {
-        throw new ModelsException("Не существует изображения с таким индексом.");
+        throw new ExeptionMy("Не существует изображения с таким индексом.");
     }
     $photo = Photograph::findById($id);
     if(!$photo) {
-        redirectTo('index.php');
+        redirectTo('gallery.php');
     }
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -34,11 +34,11 @@ try {
         $body = escapeValue($_POST['body']);
 
         if (!$new_comment = Comment::make($photo->id, $author, $body)) {
-            throw new ModelsException("Комментарий не получен.");
+            throw new ExeptionMy("Комментарий не получен.");
         }
         $new_comment->saveDB();
         $new_comment->tryToSendNotification();
-        redirectTo("index.php");
+        redirectTo("gallery.php");
 
     } else {
         $author = "";
@@ -58,12 +58,12 @@ try {
 
     $comments = $photo->comments($pagination);
 
-} catch (ModelsPDOException $e) {
+} catch (ExeptionPDOMy $e) {
     $action = " Error on the {$e->getLine()}-lines. Info about";
     $body = "\n{$e->getMessage()}.\nPath: {$e->getFile()}\n\n";
     logAction(LOG_PATH, $action, $body);
     redirectTo('posts_cap.html');
-}catch (ModelsException $e) {
+}catch (ExeptionMy $e) {
     $session->message($e->getMessage());
     $action = " Error on the {$e->getLine()}-lines. Info about";
     $body = "\n{$e->getMessage()}.\nPath: {$e->getFile()}\n\n";

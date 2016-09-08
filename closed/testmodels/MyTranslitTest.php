@@ -8,7 +8,7 @@
 
 namespace closed\testmodels;
 
-use Models\MyTranslit;
+use models\MyTranslit;
 
 class MyTranslitTest extends \PHPUnit_Framework_TestCase
 {

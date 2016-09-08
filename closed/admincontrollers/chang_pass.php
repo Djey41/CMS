@@ -5,15 +5,15 @@
  * Date: 08.05.2016
  * Time: 19:22
  */
-use Models\ {
+use models\ {
        SmartyClass,
        User,
        Session,
-       ModelsPDOException,
-       ModelsException
+       ExeptionPDOMy,
+       ExeptionMy
 };
 
-require_once ("../../initialize.php");
+require_once("../../index.php");
 
 $session = new Session();
 if (!$session->isLoggedIn()) { redirectTo("login.php"); }
@@ -22,7 +22,7 @@ try {
         if ($_SERVER['REQUEST_METHOD']=='POST') {
             $username = escapeValue($_POST['username']);
             if (!preg_match('/^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$/', $username)) {
-                throw new ModelsException("Для логина возоможен выбор только из  латиницы (регистронезависимо) и цифр (всего 2-20 символов)");
+                throw new ExeptionMy("Для логина возоможен выбор только из  латиницы (регистронезависимо) и цифр (всего 2-20 символов)");
             }
             $salt = "24akjJ0340LJafkri3409jag";
             $options = [
@@ -34,7 +34,7 @@ try {
                 $old_password = escapeValue($_POST['old_password']);
                 $new_password = escapeValue($_POST['new_password']);
                 if (!preg_match('/(?=^.{8,}$)(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s)[0-9a-zA-Z!?@#$%^&*()]*$/',  $new_password)) {
-                    throw new ModelsException("Для пароля неоходима латиница обязателен верхний и нижний регистр и цифры и какой-нибудь из этих символов: !?@#$%^&  (всего минимум 8 символов)");
+                    throw new ExeptionMy("Для пароля неоходима латиница обязателен верхний и нижний регистр и цифры и какой-нибудь из этих символов: !?@#$%^&  (всего минимум 8 символов)");
                 }
                 $first_name = escapeValue($_POST['first_name']);
                 $last_name = escapeValue($_POST['last_name']);
@@ -47,13 +47,13 @@ try {
                             $propertys_obj->saveDB();
                             redirectTo("adminindex.php");
                         } else {
-                            throw new ModelsException("Такой логин уже есть и пароль для него не совпадает!");
+                            throw new ExeptionMy("Такой логин уже есть и пароль для него не совпадает!");
                         }
                     } else {
-                        throw new ModelsException("Аутентификация не пройдена!");
+                        throw new ExeptionMy("Аутентификация не пройдена!");
                     }
             } else{
-                throw new ModelsException("Пароли не совпадают!");
+                throw new ExeptionMy("Пароли не совпадают!");
             }
         } else {
             $found_user = new User();
@@ -62,10 +62,10 @@ try {
             $found_user->first_name = "";
             $found_user->last_name = "";
         }
-    } catch (ModelsPDOException $e) {
+    } catch (ExeptionPDOMy $e) {
     $session->message($e->getMessage());
     redirectTo("adminindex.php");
-} catch (ModelsException $e) {
+} catch (ExeptionMy $e) {
     $session->message($e->getMessage());
     redirectTo("chang_pass.php");
 }

@@ -1,7 +1,7 @@
 <?php
-use Models\Session;
+use models\Session;
 
-require_once ("../../initialize.php");
+require_once("../../index.php");
     $session = new Session();
     $session->logout();
     redirectTo("login.php");

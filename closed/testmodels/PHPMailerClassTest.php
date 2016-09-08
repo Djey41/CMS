@@ -9,7 +9,7 @@
 namespace closed\testmodels;
 
 
-use Models\PHPMailerClass;
+use models\PHPMailerClass;
 
 class PHPMailerClassTest extends \PHPUnit_Framework_TestCase
 {

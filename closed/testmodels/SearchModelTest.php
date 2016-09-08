@@ -8,8 +8,8 @@
 
 namespace closed\testmodels;
 
-use Models\Pagination;
-use Models\SearchModel;
+use models\Pagination;
+use models\SearchModel;
 use \PHPUnit\Framework\TestCase;
 
 class SearchModelTest extends TestCase

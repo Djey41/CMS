@@ -1,9 +1,9 @@
 <?php
-use Models\Session;
-use Models\SmartyClass;
-use Models\ModelsException;
+use models\Session;
+use models\SmartyClass;
+use models\ExeptionMy;
 
-require_once ("../../initialize.php");
+require_once("../../index.php");
 
 $logfile = __DIR__ . '/../../logs/' . escapeValue($_GET['path_log']);
 $session = new Session();
@@ -18,10 +18,10 @@ try {
             logAction($logfile, 'Logs Cleared', "by User ID {$session->user_id}");
             redirectTo('logfile.php?path_log='. $_GET['path_log']);
         } else {
-            throw new ModelsException("Не передан путь к лог-файлу.");
+            throw new ExeptionMy("Не передан путь к лог-файлу.");
         }
     }
-} catch (ModelsException $e) {
+} catch (ExeptionMy $e) {
     $session->message($e->getMessage());
     redirectTo('adminindex.php');
 }

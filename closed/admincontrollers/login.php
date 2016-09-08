@@ -1,13 +1,13 @@
 <?php
-use Models\ {
+use models\ {
        Session,
        User,
        SmartyClass,
-       ModelsPDOException,
-       ModelsException
+       ExeptionPDOMy,
+       ExeptionMy
 };
 
-require_once ("../../initialize.php");
+require_once("../../index.php");
 
 $session = new Session();
 $message = $session->message();
@@ -28,20 +28,20 @@ try {
                 logAction( __DIR__ . '/../../logs/log.txt', 'Login', "{$found_user->username} logged in.");
                 redirectTo("adminindex.php");
             } else {
-                throw new ModelsException("Некорректная комбинация логин/пароль.");
+                throw new ExeptionMy("Некорректная комбинация логин/пароль.");
             }
         } else {
-            throw new ModelsException("Заполните все поля!");
+            throw new ExeptionMy("Заполните все поля!");
         }
     } else {
         $username = "";
         $password = "";
     }
 
-} catch (ModelsPDOException $e) {
+} catch (ExeptionPDOMy $e) {
     $session->message($e->getMessage());
     redirectTo("adminindex.php");
-} catch (ModelsException $e) {
+} catch (ExeptionMy $e) {
     $session->message($e->getMessage());
     redirectTo("login.php");
 }

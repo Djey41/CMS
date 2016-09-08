@@ -5,15 +5,15 @@
  * Date: 29.04.2016
  * Time: 18:41
  */
-use Models\ {
+use models\ {
        Session,
        ParamsDisplayImag,
-       ModelsPDOException,
-       ModelsException,
+       ExeptionPDOMy,
+       ExeptionMy,
        SmartyClass
 };
 
-require_once ("../../initialize.php");
+require_once("../../index.php");
 
 $session = new Session();
 $message = $session->message();
@@ -52,10 +52,10 @@ try {
         $params->count_images = 15;
         //$sort = "views";
     }
-} catch (ModelsPDOException $e) {
+} catch (ExeptionPDOMy $e) {
     $session->message($e->getMessage());
     redirectTo("adminindex.php");
-} catch (ModelsException $e) {
+} catch (ExeptionMy $e) {
     $session->message($e->getMessage());
     redirectTo("display_settings.php");
 }

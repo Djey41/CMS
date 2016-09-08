@@ -1,30 +1,29 @@
 <?php
-use Models\ {
+use models\ {
        Session,
        Photograph,
-       ModelsException,
-       ModelsPDOException
+       ExeptionMy,
+       ExeptionPDOMy
 };
 
-require_once ("../../initialize.php");
+require_once ("../../index.php");
 
 $session = new Session();
 if (!$session->isLoggedIn()) { redirectTo("login.php"); }
 try {
     if (empty($_GET['id'])) {
-        throw new ModelsException("ID данного изображения не передан.");
+        throw new ExeptionMy("ID данного изображения не передан.");
     }
     if (!$photo = Photograph::findById($_GET['id'])) {
-        throw new ModelsException("Такого изображения не существует.");
+        throw new ExeptionMy("Такого изображения не существует.");
     }
-    if ($photo->destroy()) {
-        throw new ModelsException("Изображение {$photo->filename} было удалено.");
-    }
+    $photo->destroy();
+    redirectTo("list_photos.php");
 
-} catch (ModelsPDOException $e) {
+} catch (ExeptionPDOMy $e) {
     $session->message($e->getMessage());
     redirectTo("adminindex.php");
-} catch (ModelsException $e) {
+} catch (ExeptionMy $e) {
     $session->message($e->getMessage());
     redirectTo('list_photos.php');
 }

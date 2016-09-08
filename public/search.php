@@ -6,18 +6,18 @@
  * Time: 22:07
  */
 
-use Models\ {
+use models\ {
         SmartyClass,
         Pagination,
         SearchModel,
         Session,
         ParamsDisplayImag,
-        ModelsPDOException,
-        ModelsException
+        ExeptionPDOMy,
+        ExeptionMy
 };
 
-require_once("../initialize.php");
-require_once("../closed/models/modelsexeption.php");
+require_once("../index.php");
+require_once("../closed/models/ExeptionMy.php");
 
 $session = new Session();
 $message = $session->message();
@@ -31,7 +31,7 @@ try {
             $search = $_SESSION['search'] = escapeValue($_POST['search']);
             $se = "%$search%";
         } else {
-            throw new ModelsException("Поисковый запрос превышает 50 символов");
+            throw new ExeptionMy("Поисковый запрос превышает 50 символов");
         }
     } else {
         $search = $_SESSION['search'];
@@ -39,7 +39,7 @@ try {
     }
 
     if (!isset($_POST['search']) && !isset($_SESSION['search']) && !isset($se)) {
-        redirectTo('index.php');
+        redirectTo('gallery.php');
     }
 
     /**
@@ -54,16 +54,16 @@ try {
      * Блок получения записей БД для вывода
      */
     $photos = $photo_obj->search($pagination);
-} catch  (ModelsPDOException $e) {
+} catch  (ExeptionPDOMy $e) {
     $action = " Error on the {$e->getLine()}-lines. Info about";
     $body = "\n{$e->getMessage()}.\nPath: {$e->getFile()}\n\n";
     logAction(LOG_PATH, $action, $body);
     redirectTo('posts_cap.html');
-} catch(ModelsException $e) {
+} catch(ExeptionMy $e) {
     $action = " Error on the {$e->getLine()}-lines. Info about";
     $body = "\n{$e->getMessage()}.\nPath: {$e->getFile()}\n\n";
     logAction(LOG_PATH, $action, $body);
-    redirectTo("index.php");
+    redirectTo("gallery.php");
 }
 /**
  * Block template

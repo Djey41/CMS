@@ -1,14 +1,14 @@
 <?php
-use Models\ {
+use models\ {
        Session,
        Photograph,
        SmartyClass,
        Pagination,
-       ModelsPDOException,
-       ModelsException
+       ExeptionPDOMy,
+       ExeptionMy
 };
 
-require_once ( "../../initialize.php");
+require_once("../../index.php");
 
 $session = new Session();
 $message = $session->message();
@@ -19,12 +19,12 @@ try {
 	} elseif (empty($_GET['id'])) {
         $photo_id = $_SESSION['photo_id'];
     } else {
-        throw new ModelsException("Неверные параметры выдачи изображения.");
+        throw new ExeptionMy("Неверные параметры выдачи изображения.");
     }
 
     $one_photo = Photograph::findById($photo_id);
     if (!$one_photo) {
-        throw new ModelsException("Изображение не обнаружено.");
+        throw new ExeptionMy("Изображение не обнаружено.");
     }
 
     /**
@@ -37,10 +37,10 @@ try {
     $pagination = new Pagination($page, $per_page, $total_count);
     $comments = $one_photo->comments($pagination);
 
-} catch (ModelsPDOException $e) {
+} catch (ExeptionPDOMy $e) {
     $session->message($e->getMessage());
     redirectTo("adminindex.php");
-} catch (ModelsException $e) {
+} catch (ExeptionMy $e) {
     $session->message($e->getMessage());
     redirectTo("adminindex.php");
 }

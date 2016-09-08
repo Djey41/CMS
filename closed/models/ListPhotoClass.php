@@ -6,7 +6,7 @@
  * Time: 18:27
  */
 
-namespace Models;
+namespace models;
 
 
 class ListPhotoClass

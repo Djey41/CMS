@@ -6,10 +6,10 @@
  * Time: 17:24
  */
 
-namespace Models;
+namespace models;
 /**
  * Class SearchModel
- * @package Models
+ * @package models
  */
 class SearchModel extends Photograph
 {

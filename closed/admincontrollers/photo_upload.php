@@ -1,14 +1,14 @@
 <?php
-use Models\ {
+use models\ {
        Session,
        Photograph,
        SmartyClass,
-       UploadException,
-       ModelsException,
+       ExeptionUploadMy,
+       ExeptionMy,
        MyTranslit
 };
 
-require_once ('../../initialize.php');
+require_once('../../index.php');
 
 $session = new Session();
 $message = $session->message();
@@ -20,12 +20,12 @@ try {
         $photo = new Photograph();
         $photo->caption = escapeValue($_POST['caption']);
         if (preg_match('/[^a-zA-Zа-яА-ЯёЁ0-9\s]+/u', $photo->caption)) {
-            throw new ModelsException("Для названия возоможен выбор любых букв и цифр (без учёта регистра, без 
+            throw new ExeptionMy("Для названия возоможен выбор любых букв и цифр (без учёта регистра, без 
             спецсимволов)");
         }
         $alt = escapeValue($_POST['alt']);
         if (preg_match('/[^a-zA-Zа-яА-ЯёЁ0-9\s]+/u', $alt)) {
-            throw new ModelsException("Для тега возоможен выбор любых (кириллица автоматически транслитерируется) 
+            throw new ExeptionMy("Для тега возоможен выбор любых (кириллица автоматически транслитерируется) 
             букв и цифр (без учёта регистра, без спецсимволов)");
         } else {
             MyTranslit::translitFromDB();
@@ -37,10 +37,10 @@ try {
         $photo->save();
         redirectTo('list_photos.php');
      }
-} catch (ModelsException $e) {
+} catch (ExeptionMy $e) {
     $session->message($e->getMessage());
     redirectTo('photo_upload.php');
-} catch (UploadException $e) {
+} catch (ExeptionUploadMy $e) {
     $session->message($e->getMessage());
     redirectTo('photo_upload.php');
 }

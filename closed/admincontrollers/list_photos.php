@@ -1,14 +1,14 @@
 <?php
-use Models\ {
+use models\ {
        Session,
        Photograph,
        SmartyClass,
        Pagination,
-       ModelsPDOException,
-        ListPhotoClass
+       ExeptionPDOMy,
+       ListPhotoClass
 };
 
-require_once ("../../initialize.php");
+require_once("../../index.php");
 
 $session = new Session();
 $message = $session->message();
@@ -24,7 +24,7 @@ try {
     $pagination = new Pagination($page, $per_page, $total_count);
     $photos = ListPhotoClass::getListPhoto($pagination);
 
-} catch (ModelsPDOException $e) {
+} catch (ExeptionPDOMy $e) {
     $session->message($e->getMessage());
     redirectTo("adminindex.php");
 }

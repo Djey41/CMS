@@ -8,8 +8,8 @@
 
 namespace closed\testmodels;
 
-use Models\ListPhotoClass;
-use Models\Pagination;
+use models\ListPhotoClass;
+use models\Pagination;
 
 class ListPhotoClassTest extends \PHPUnit_Framework_TestCase
 {

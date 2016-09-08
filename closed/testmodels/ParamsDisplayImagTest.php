@@ -9,7 +9,7 @@
 namespace closed\testmodels;
 
 
-use Models\ParamsDisplayImag;
+use models\ParamsDisplayImag;
 
 class ParamsDisplayImagTest extends \PHPUnit_Framework_TestCase
 {

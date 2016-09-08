@@ -1,10 +1,10 @@
 <?php
-use Models\ {
+use models\ {
        Session,
        SmartyClass
 };
 
-require_once ('../../initialize.php');
+require_once('../../index.php');
 
 $session = new Session();
 $message = $session->message();
