@@ -64,7 +64,9 @@ mytemplates_c/
 Smartemplates/
 !Smartemplates/mytemplates/
 /vendor/
+# temp
 /create_DB.php
+# temp
 /Docs/
 
 logs/
