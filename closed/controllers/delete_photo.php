@@ -6,7 +6,7 @@ use models\ {
        ExeptionPDOMy
 };
 
-require_once ("../../index.php");
+require_once("../../index.php");
 
 $session = new Session();
 if (!$session->isLoggedIn()) { redirectTo("login.php"); }

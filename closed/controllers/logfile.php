@@ -33,4 +33,4 @@ try {
 $smarty = new SmartyClass();
 $smarty->assign('logfile', $logfile);
 $smarty->assign('message', $message);
-$smarty->display('C:\OpenServer\domains\photogallery\public\Smartemplates\mytemplates\logfile.tpl');
+$smarty->display('C:\OpenServer\domains\photogallery\smartemplates\logfile.tpl');

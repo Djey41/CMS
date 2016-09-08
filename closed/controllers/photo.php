@@ -10,8 +10,8 @@ use models\ {
         ExeptionPDOMy
 };
 
-require_once("../index.php");
-require_once("../closed/models/ExeptionMy.php");
+require_once("../../index.php");
+require_once("../models/ExeptionMy.php");
 
 $session = new Session();
 $message = $session->message();
@@ -82,4 +82,4 @@ $smarty->assign('body', $body);
 $smarty->assign('message', $message);// тут ошибки комментов их надо показывать юзеру
 $smarty->assign('pagination', $pagination);
 $smarty->assign('comments', $comments);
-$smarty->display('C:\OpenServer\domains\photogallery\public\Smartemplates\mytemplates\photo.tpl');
+$smarty->display('C:\OpenServer\domains\photogallery\smartemplates\photo.tpl');

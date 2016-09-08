@@ -53,4 +53,4 @@ $smarty->assign('message', $message);
 $smarty->assign('photo', $one_photo);
 $smarty->assign('comments', $comments);
 $smarty->assign('pagination', $pagination);
-$smarty->display('C:\OpenServer\domains\photogallery\public\Smartemplates\mytemplates\comments.tpl');
+$smarty->display('C:\OpenServer\domains\photogallery\smartemplates\comments.tpl');

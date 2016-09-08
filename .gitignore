@@ -60,9 +60,9 @@ fabric.properties
  # My settings
 images/
 prewiev/
-mytemplates_c/
-Smartemplates/
-!Smartemplates/mytemplates/
+smartemplates_c/
+smartconfig/
+smartcashe/
 /vendor/
 # temp
 /create_DB.php

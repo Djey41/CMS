@@ -61,4 +61,4 @@ try {
 
 $smarty = new SmartyClass();
 $smarty->assign('photoup', $photoup);
-$smarty->display('C:\OpenServer\domains\photogallery\public\Smartemplates\mytemplates\update_photoinfo.tpl');
+$smarty->display('C:\OpenServer\domains\photogallery\smartemplates\update_photoinfo.tpl');

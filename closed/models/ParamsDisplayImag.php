@@ -62,7 +62,7 @@ class ParamsDisplayImag extends DBObject
     /**
      * @param int $width
      * @param int $height
-     * @param string $rgb
+     * @param int $rgb
      * @param int $quality
      * @param string $title
      * @param string $footer
@@ -72,10 +72,10 @@ class ParamsDisplayImag extends DBObject
      * @return ParamsDisplayImag
      * @throws ExeptionMy
      */
-    public function makeParamsQuality(int $width, int $height, string $rgb, int $quality, string $title, string $footer,
+    public function makeParamsQuality(int $width, int $height, int $rgb, int $quality, string $title, string $footer,
                                       string $name_pages, string $count_images, string $sort): ParamsDisplayImag
     {
-        if (!empty($width) && !empty($height) && !empty($rgb) && !empty($quality)) {
+        if (!empty($width) && !empty($height) && !is_null($rgb) && !empty($quality)) {
 
             $params = new ParamsDisplayImag();
             $params->id = 0;

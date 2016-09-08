@@ -9,8 +9,8 @@ use models\ {
         ErrorMy
 };
 
-require_once("../index.php");
-require_once("../closed/models/ExeptionMy.php");
+require_once("../../index.php");
+require_once("../models/ExeptionMy.php");
 
 $session = new Session();
 try {
@@ -64,4 +64,4 @@ comments.photograph_id FROM photographs ";
 $smarty = new SmartyClass();
 $smarty->assign('photos', $photos);
 $smarty->assign('pagination', $pagination);
-$smarty->display('C:\OpenServer\domains\photogallery\public\Smartemplates\mytemplates\gallery.tpl');
+$smarty->display('C:\OpenServer\domains\photogallery\smartemplates\gallery.tpl');

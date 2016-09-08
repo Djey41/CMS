@@ -7,8 +7,9 @@ namespace models;
      */
     class Photograph extends DBObject
     {
-        const UPLOAD_DIR = "images/";
-        const BASE_PUBLIC_DIR = __DIR__."/../../public/";
+        const UPLOAD_DIR = "../../images/";
+        const PREVIEW_DIR = '/../../prewiev/';
+        //const BASE_PUBLIC_DIR = __DIR__."/../../public/";
         /**
          * @var
          */
@@ -89,7 +90,7 @@ namespace models;
 
                     while (true) {
                         $this->filename = $this->uniqNamePhoto() . $extens;
-                        if(!file_exists($this->target_path = self::BASE_PUBLIC_DIR . self::UPLOAD_DIR . $this->filename)) {break;}
+                        if(!file_exists($this->target_path = self::UPLOAD_DIR . $this->filename)) {break;}
                     }
                     $this->type  = $file['type'];
                     $this->size  = $file['size'];
@@ -147,7 +148,7 @@ namespace models;
             $comm = new Comment();
             $comm->id = $this->id;
             $comm->delete("photograph_id");
-            $this->target_path = __DIR__.'/../../public/'.$this->imagePath();
+            $this->target_path = __DIR__.DIRECTORY_SEPARATOR.$this->imagePath();
             $path_for_unlink_prew = $this->prewPath() . $this->prew_name;
             if (!file_exists($path_for_unlink_prew) && !file_exists($this->target_path)) {
                 throw new ExeptionMy("Удаляемые файлы отсутствуют.");
@@ -163,6 +164,13 @@ namespace models;
         public function imagePath(): string
         {
             return self::UPLOAD_DIR . $this->filename;// images/cat.jpg
+        }
+        /**
+         * @return string
+         */
+        private function prewPath(): string
+        {
+            return __DIR__ . self::PREVIEW_DIR;
         }
 
         /**
@@ -191,13 +199,7 @@ namespace models;
         }
 
 
-        /**
-         * @return string
-         */
-        private function prewPath(): string
-        {
-            return  __DIR__ . '/../../public/prewiev/';
-        }
+
 
 
     /**
