@@ -6,7 +6,7 @@
  * Time: 22:32
  */
 
-namespace closed\testmodels;
+namespace application\testmodels;
 
 
 use models\PHPMailerClass;

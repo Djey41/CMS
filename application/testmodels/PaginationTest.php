@@ -6,7 +6,7 @@
  * Time: 21:21
  */
 
-namespace closed\testmodels;
+namespace application\testmodels;
 
 use models\Pagination;
 class PaginationTest extends \PHPUnit_Framework_TestCase

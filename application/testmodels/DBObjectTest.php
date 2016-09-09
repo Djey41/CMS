@@ -6,7 +6,7 @@
  * Time: 0:28
  */
 
-namespace closed\testmodels;
+namespace application\testmodels;
 
 use models\Photograph;
 

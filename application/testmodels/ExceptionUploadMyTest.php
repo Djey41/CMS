@@ -6,7 +6,7 @@
  * Time: 22:28
  */
 
-namespace closed\testmodels;
+namespace application\testmodels;
 
 use models\ExeptionUploadMy;
 class ExceptionUploadMyTest extends \PHPUnit_Framework_TestCase

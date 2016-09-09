@@ -6,7 +6,7 @@
  * Time: 18:37
  */
 
-namespace closed\testmodels;
+namespace application\testmodels;
 
 use models\ListPhotoClass;
 use models\Pagination;

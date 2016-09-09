@@ -6,7 +6,7 @@
  * Time: 20:57
  */
 
-namespace closed\testmodels;
+namespace application\testmodels;
 
 
 use models\ParamsDisplayImag;
@@ -35,10 +35,10 @@ class ParamsDisplayImagTest extends \PHPUnit_Framework_TestCase
     public function provider()
     {
         return [
-            [1, 1, 'c', 1, 'a', 'b', 'e', 'f', 'g'],
-            [2, 1, 'c', 1, 'a', 'b', 'e', 'f', 'g'],
-            [3, 1, 'c', 1, 'a', 'b', 'e', 'f', 'g'],
-            [4, 1, 'c', 1, 'a', 'b', 'e', 'f', 'g']
+            [1, 1, 0, 1, 'a', 'b', 'e', 'f', 'g'],
+            [2, 1, 0, 1, 'a', 'b', 'e', 'f', 'g'],
+            [3, 1, 0, 1, 'a', 'b', 'e', 'f', 'g'],
+            [4, 1, 0, 1, 'a', 'b', 'e', 'f', 'g']
         ];
     }
 }

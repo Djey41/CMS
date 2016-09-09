@@ -6,7 +6,7 @@
  * Time: 1:28
  */
 
-namespace closed\testmodels;
+namespace application\testmodels;
 
 use models\MyTranslit;
 

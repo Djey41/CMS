@@ -6,7 +6,7 @@
  * Time: 19:25
  */
 
-namespace closed\testmodels;
+namespace application\testmodels;
 
 use models\Pagination;
 use models\SearchModel;

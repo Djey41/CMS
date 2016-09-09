@@ -6,7 +6,7 @@
  * Time: 22:30
  */
 
-namespace closed\testmodels;
+namespace application\testmodels;
 
 use models\Comment;
 use models\Pagination;

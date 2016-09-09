@@ -6,7 +6,7 @@
  * Time: 22:41
  */
 
-namespace closed\testmodels;
+namespace application\testmodels;
 
 
 use models\User;
