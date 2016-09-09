@@ -58,7 +58,6 @@ fabric.properties
  ########################################################################################################
 
  # My settings
- .idea/
 images/
 prewiev/
 smartemplates_c/
