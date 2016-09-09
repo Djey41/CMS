@@ -2,7 +2,7 @@
 <a href="./registration.php">&laquo; Registration</a><br />
 <h2>Staff Login</h2>
 <p id="err">{outputMessage($message)}</p>
-<form action="../../../closed/controllers/login.php" method="post">
+<form action="../../../application/controllers/login.php" method="post">
     <table>
         <tr>
             <td><label for="us-field">Username:</label></td>

@@ -53,4 +53,4 @@ $smarty = new SmartyClass();
 $smarty->assign('message', $message);
 $smarty->assign('username', $username);
 $smarty->assign('password', $password);
-$smarty->display('C:\OpenServer\domains\photogallery\closed\smartemplates\login.tpl');
+$smarty->display('C:\OpenServer\domains\photogallery\application\smartemplates\login.tpl');

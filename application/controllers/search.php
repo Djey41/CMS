@@ -73,4 +73,4 @@ $smarty = new SmartyClass();
 $smarty->assign('photos', $photos);
 $smarty->assign('pagination', $pagination);
 $smarty->assign('message', $message);
-$smarty->display('C:\OpenServer\domains\photogallery\closed\smartemplates\search.tpl');
+$smarty->display('C:\OpenServer\domains\photogallery\application\smartemplates\search.tpl');

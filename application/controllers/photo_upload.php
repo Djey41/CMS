@@ -52,4 +52,4 @@ try {
 $smarty = new SmartyClass();
 $smarty->assign('max_file_size', $max_file_size);
 $smarty->assign('message', $message);
-$smarty->display('C:\OpenServer\domains\photogallery\closed\smartemplates\photo_upload.tpl');
+$smarty->display('C:\OpenServer\domains\photogallery\application\smartemplates\photo_upload.tpl');

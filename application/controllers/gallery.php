@@ -64,4 +64,4 @@ comments.photograph_id FROM photographs ";
 $smarty = new SmartyClass();
 $smarty->assign('photos', $photos);
 $smarty->assign('pagination', $pagination);
-$smarty->display('C:\OpenServer\domains\photogallery\closed\smartemplates\gallery.tpl');
+$smarty->display('C:\OpenServer\domains\photogallery\application\smartemplates\gallery.tpl');
