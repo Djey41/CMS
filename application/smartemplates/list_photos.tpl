@@ -5,13 +5,13 @@
 {outputMessage($message)}
 <table class="bordered">
     <tr>
-        <th>Изобр.</th>
-        <th>Файл</th>
-        <th>Назв.</th>
+        <th>Миниатюра</th>
+        <th>Имя файла</th>
+        <th>Название</th>
         <th>Размер</th>
         <th>Тип</th>
         <th>Тэг</th>
-        <th>Просмотры</th>
+        <th>Просм.</th>
         <th>Загружен</th>
         <th>Коммент.</th>
         <th>Ред.</th>

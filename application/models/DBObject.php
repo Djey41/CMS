@@ -37,6 +37,10 @@ namespace models;
          *  @var integer
          */
         public $id;
+        /**
+         *  @var object
+         */
+        public static $object;
 
         /**
          * @return array
@@ -92,13 +96,17 @@ namespace models;
          */
         private static function instantiate(array $record)//: ?object
         {
-            $object = new static;
-            foreach ($record as $attribute=>$value) {
-                if ($object->hasAttribute($attribute)) {
-                    $object->$attribute = $value;
-                }
+            if(self::$object instanceof static) {
+                self::$object = null;// clean copy of object
             }
-            return $object;
+            //gc_collect_cycles();// start Garbage Collection working either
+            self::$object = new static();
+            foreach ($record as $attribute=>$value) {
+            if (self::$object->hasAttribute($attribute)) {
+                self::$object->$attribute = $value;
+            }
+            }
+            return self::$object;
         }
 
         /**

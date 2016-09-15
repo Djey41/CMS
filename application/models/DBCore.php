@@ -1,12 +1,19 @@
 <?php
 namespace models;
 
-    class DBCore
+/**
+ * Class DBCore
+ * @package models
+ */
+class DBCore
     {
         /**
          * @var
          */
         private static $db;
+        /**
+         * @var
+         */
         private static $stmt;
         /**
          * @var array
@@ -23,11 +30,14 @@ namespace models;
         /**
          * @var integer
          */
-        //public static $rank_id;
+        public static $rank;
         /**
          * @var string
          */
         public static $se;
+        /**
+         * @var
+         */
         public static $last_query;
 
         /**
@@ -73,6 +83,9 @@ namespace models;
             if (!empty(static::$clean_id)) {
                 self::$stmt->bindParam(':id', static::$clean_id, \PDO::PARAM_INT, 10000000);
             }
+           if (!empty(static::$rank)) {
+                self::$stmt->bindParam(':rank', static::$rank, \PDO::PARAM_INT, 10000000);
+            }
 
             if (!empty(static::$se)) {
                 self::$stmt->bindParam(':se', static::$se, \PDO::PARAM_STR, 50);
@@ -88,7 +101,6 @@ namespace models;
             }
             $res = self::$stmt->execute();
             self::confirmQuery($res);
-            static::$clean_id = null;
             return (bool) $res;
         }
 

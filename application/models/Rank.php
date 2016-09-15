@@ -21,7 +21,7 @@ class Rank extends DBObject
     /**
      * @var integer
      */
-    public static $clean_id;
+    public static $rank;
 
     /**
      *  Метод ранжировки фото
@@ -31,12 +31,10 @@ class Rank extends DBObject
     {
         $sql = "UPDATE photographs ";
         $sql .= "SET views=views+1 ";
-        $sql .= "WHERE id = :id";
+        $sql .= "WHERE id = :rank";
 
-        self::$clean_id = $id;
-        $obj = new Rank();
-        $obj->myQuery($sql);
-        $discon  = new DBCore();
-        $discon->closeConnection();
-    }
+        self::$rank = $id;
+        $obj_rank = new Rank();
+        $obj_rank->myQuery($sql);
+        }
 }
