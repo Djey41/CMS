@@ -14,11 +14,11 @@
     <form action="update_photoinfo.php?id={$photoup->id}" method="POST">
         <table>
             <tr>
-                <td><label for="caption-field">New caption:</label></td>
+                <td><label for="caption-field">Новое название изображения:</label></td>
                 <td><input id="caption-field" type="text" name="caption" value="{$photoup->caption}" /></td>
             </tr>
             <tr>
-                <td><label for="alt-field">New alt:</label></td>
+                <td><label for="alt-field">Новый тег alt:</label></td>
                 <td><input id="alt-field" type="text" name="alt" value="{$photoup->alt}" /></td>
             </tr>
             <tr>

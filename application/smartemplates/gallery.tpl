@@ -15,7 +15,7 @@
     {if $pagination->totalPages() > 1}
 
         {if $pagination->hasPreviousPage()}
-        <a href="gallery.php?page={$pagination->previousPage()}">&laquo; Previous</a>
+        <a href="gallery.php?page={$pagination->previousPage()}">&laquo; Туда</a>
         {/if}
         {*assign var="total_pages" value=$pagination->total_pages()+1*}
 
@@ -31,7 +31,7 @@
   {/section}
 
     {if $pagination->hasNextPage()}
-    <a href="gallery.php?page={$pagination->nextPage()}">Next &raquo;</a>
+    <a href="gallery.php?page={$pagination->nextPage()}">Сюда &raquo;</a>
     {/if}
         <form action="gallery.php" method="GET">
 

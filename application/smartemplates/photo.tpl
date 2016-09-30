@@ -58,15 +58,15 @@
 
 <div id="comment-form">
     <h3>New Comment</h3>
-    {outputMessage($message)}
+    <strong class="error">{outputMessage($message)}</strong>
     <form action="photo.php?id={$photo->id}" method="post">
         <table>
             <tr>
-                <td><label for="name-field">Your name:</label></td>
+                <td><label for="name-field">Ваше имя</label></td>
                 <td><input id="name-field" type="text" name="author" value="{$author}" /></td>
             </tr>
             <tr>
-                <td><label for="comm-field">Your comment:</label></td>
+                <td><label for="comm-field">Ваш комментарий:</label></td>
                 <td><textarea id="comm-field" name="body" cols="40" rows="8">{$body}</textarea></td>
             </tr>
             <tr>

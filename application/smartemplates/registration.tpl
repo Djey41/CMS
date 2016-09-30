@@ -1,6 +1,6 @@
 {include file='file:./admin_header.tpl'}
 <a href="./login.php">&laquo; Back</a><br />
-{outputMessage($message)}
+<strong class="error">{outputMessage($message)}</strong>
 <br>
 <form action="registration.php" method="post">
     <table>

@@ -6,26 +6,48 @@
   #8D0D19 - burgundy
 */
 
-html { height: 100%; width: 100%; }
-body { height: 100%; width: 100%; margin: 0; padding: 0; border: 0; background: #FFFFFF;
-  font: 13px/15px Verdana,Arial,Helvetica,sans-serif; }
-img { border: none; }
-table, tr, td, tr { border-collapse: collapse; vertical-align: top; text-align: left;
-  font: 13px/15px Verdana,Arial,Helvetica,sans-serif; }
-a { color: #8D0D19;}
+html {
+    height: 100%; width: 100%;
+}
+body {
+    height: 100%; width: 100%; margin: 0; padding: 0; border: 0; background: #FFFFFF;
+  font: 13px/15px Verdana,Arial,Helvetica,sans-serif;
+}
+img {
+    border: none;
+}
+table, tr, td, tr {
+    border-collapse: collapse; vertical-align: top; text-align: left;
+  font: 13px/15px Verdana,Arial,Helvetica,sans-serif;
+}
+a {
+    color: #8D0D19;
+}
 
-#header { height: 70px; text-align: left; background: #CD3700; color: #FFDEAD; }
-#header h1 { padding: 1em; margin: 0;}
+#header {
+    height: 70px; text-align: left; background: #CD3700; color: #FFDEAD;
+}
+#header h1 {
+    padding: 1em; margin: 0;
+}
 
-#main { min-height: 600px; width: 100%; background: #EEE4B9; padding: 2em;}
+#main {
+    min-height: 600px; width: 100%; background: #EEE4B9; padding: 2em;
+}
 
-#footer { height: 2em; padding: 1em; text-align: center; 
-  background: #CD3700;  color: #FFDEAD; }
+#footer {
+    height: 2em; padding: 1em; text-align: center;
+  background: #CD3700;  color: #FFDEAD;
+}
 
-table.bordered tr th, table.bordered tr td { border: 1px solid #000000; }
+table.bordered tr th, table.bordered tr td {
+    border: 1px solid #000000;
+}
 
-#pagination .selected { font-weight: bold; color: #8D0D19;}
+#pagination .selected {
+    font-weight: bold; color: #8D0D19;
+}
 
-p#err {
+strong.error {
     color: red;
 }

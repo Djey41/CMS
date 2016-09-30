@@ -1,8 +1,8 @@
 {include file='file:./admin_header.tpl'}
-<a href="adminindex.php">&laquo; Back</a><br />
+<a href="adminindex.php">&laquo; Назад</a><br />
 <h2>Photographs</h2>
 
-{outputMessage($message)}
+<strong class="error">{outputMessage($message)}</strong>
 <table class="bordered">
     <tr>
         <th>Миниатюра</th>
@@ -37,19 +37,19 @@
                 {count($photo->forGettingOfNumberComments())}
             </a>
         </td>
-        <td><a href="update_photoinfo.php?id={$photo->id}">Update</a></td>
-        <td><a href="delete_photo.php?id={$photo->id}">Delete</a></td>
+        <td><a href="update_photoinfo.php?id={$photo->id}">Обновить</a></td>
+        <td><a href="delete_photo.php?id={$photo->id}">Удалить</a></td>
     </tr>
     {/foreach}
 </table>
 <br />
-<a href="photo_upload.php">Upload a new photograph</a>
+<a href="photo_upload.php">Загрузить изображение</a>
 <br /><br />
 <div id="pagination" style="clear: both;">
     {if $pagination->totalPages() > 1}
 
         {if $pagination->hasPreviousPage()}
-            <a href="list_photos.php?page={$pagination->previousPage()}">&laquo; Previous</a>
+            <a href="list_photos.php?page={$pagination->previousPage()}">&laquo; Туда</a>
         {/if}
         {*assign var="total_pages" value=$pagination->total_pages()+1*}
 
@@ -65,7 +65,7 @@
         {/section}
 
         {if $pagination->hasNextPage()}
-            <a href="list_photos.php?page={$pagination->nextPage()}">Next &raquo;</a>
+            <a href="list_photos.php?page={$pagination->nextPage()}">Сюда &raquo;</a>
         {/if}
         <form action="list_photos.php" method="GET">
 

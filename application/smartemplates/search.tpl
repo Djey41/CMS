@@ -1,9 +1,9 @@
 {include file="./header.tpl"}
 
-<a href="gallery.php">&laquo; Back</a><br />
+<a href="gallery.php">&laquo; Назад</a><br />
 <h2><strong>Результаты поиска:</strong></h2>
 
-{outputMessage($message)}
+<strong class="error">{outputMessage($message)}</strong>
 {foreach from=$photos item=photo}
 
     <div style="float: left; margin-left: 20px;">
@@ -18,7 +18,7 @@
     {if $pagination->totalPages() > 1}
 
         {if $pagination->hasPreviousPage()}
-            <a href="search.php?page={$pagination->previousPage()}">&laquo; Previous</a>
+            <a href="search.php?page={$pagination->previousPage()}">&laquo; Туда</a>
         {/if}
         {*assign var="total_pages" value=$pagination->total_pages()+1*}
 
@@ -34,7 +34,7 @@
         {/section}
 
         {if $pagination->hasNextPage()}
-            <a href="search.php?page={$pagination->nextPage()}">Next &raquo;</a>
+            <a href="search.php?page={$pagination->nextPage()}">Сюда &raquo;</a>
         {/if}
         <form action="search.php" method="GET">
 

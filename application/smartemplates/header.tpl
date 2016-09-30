@@ -1,7 +1,7 @@
 <html>
 <head>
     <title>{$smarty.session.title}</title>
-    <link href="../../../../stylesheets/main.css" media="all" rel="stylesheet" type="text/css" />
+    <link href="/stylesheets/main.css" media="all" rel="stylesheet" type="text/css" />
 </head>
 <body>
 <div id="header">

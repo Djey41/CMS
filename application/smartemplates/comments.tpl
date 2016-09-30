@@ -4,7 +4,7 @@
 
 <h2>Комментарии к изображению: {$photo->filename}</h2>
 
-{outputMessage($message)}
+<strong class="error">{outputMessage($message)}</strong>
 <div id="comments">
     {foreach from=$comments item=comment}
     <div class="comment" style="margin-bottom: 2em;">
@@ -18,18 +18,18 @@
             {datetimeToText($comment->created)}
         </div>
         <div class="actions" style="font-size: 0.8em;">
-            <a href="delete_comment.php?id={$comment->id}">Delete Comment</a>
+            <a href="delete_comment.php?id={$comment->id}">Удалить комментарий</a>
         </div>
     </div>
     {/foreach}
-  {if empty($comments)} No Comments. {/if}
+  {if empty($comments)} Нет комментариев. {/if}
 </div>
 
 <div id="pagination" style="clear: both;">
     {if $pagination->totalPages() > 1}
 
         {if $pagination->hasPreviousPage()}
-            <a href="comments.php?page={$pagination->previousPage()}">&laquo; Previous</a>
+            <a href="comments.php?page={$pagination->previousPage()}">&laquo; Туда</a>
         {/if}
         {*assign var="total_pages" value=$pagination->total_pages()+1*}
 
@@ -45,7 +45,7 @@
         {/section}
     {*$pagination->has_next_page()*}
         {if $pagination->hasNextPage()}
-            <a href="comments.php?page={$pagination->nextPage()}">Next &raquo;</a>
+            <a href="comments.php?page={$pagination->nextPage()}">Сюда &raquo;</a>
         {/if}
         <form action="comments.php" method="GET">
 
