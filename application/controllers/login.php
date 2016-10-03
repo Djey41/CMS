@@ -40,7 +40,10 @@ try {
 
 } catch (ExeptionPDOMy $e) {
     $session->message($e->getMessage());
-    redirectTo("adminindex.php");
+    $action = " Error on the {$e->getLine()}-lines. Info about";
+    $body = "\n{$e->getMessage()}.\nPath: {$e->getFile()}\n\n";
+    logAction(LOG_PATH, $action, $body);
+    redirectTo('/posts_cap.html');
 } catch (ExeptionMy $e) {
     $session->message($e->getMessage());
     redirectTo("login.php");

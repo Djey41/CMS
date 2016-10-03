@@ -76,6 +76,7 @@ namespace models;
          */
         public function message(string $msg="")
         {
+            //var_dump($msg);exit;
             if (!empty($msg)) {
                 $_SESSION['message'] = $msg;
             } else {

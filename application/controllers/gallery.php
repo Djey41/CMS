@@ -49,13 +49,13 @@ comments.photograph_id FROM photographs ";
     $action = " Error on the {$e->getLine()}-lines. Info about";
     $body = "\n{$e->getMessage()}.\nPath: {$e->getFile()}\n\n";
     logAction(LOG_PATH, $action, $body);
-    redirectTo('posts_cap.html');
+    redirectTo('/posts_cap.html');
 } catch(ErrorMy $e) {
     $action = " Error on the {$e->getLine()}-lines. Info about";
     $body = "\n{$e->getMessage()}.\nPath: {$e->getFile()}\n\n";
     logAction(LOG_PATH, $action, $body);
     tryToSendMessageToPost($action, $body, null);
-    redirectTo('posts_cap.html');
+    redirectTo('/posts_cap.html');
 }
 /**
  * Block template

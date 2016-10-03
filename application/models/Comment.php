@@ -76,7 +76,7 @@ namespace models;
             $sql .= " ORDER BY created ASC";
             $sql .= " LIMIT {$pagination->per_page}";
             $sql .= " OFFSET {$pagination->offset()}";
-            $arr_comm2 = self::findBySql($sql);// array objects
+            $arr_comm2 = self::findBySql($sql);//  objects array
             return $arr_comm2;
         }
 
@@ -88,7 +88,7 @@ namespace models;
         {
             $sql = "SELECT id, photograph_id, created, author, body FROM " . self::$table_name;
             $sql .= " WHERE photograph_id=" . $photo_id;
-            $arr_comm = parent::findBySql($sql);// array objects
+            $arr_comm = parent::findBySql($sql);// objects array
             return $arr_comm;
         }
 

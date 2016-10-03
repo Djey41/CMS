@@ -2,6 +2,7 @@
 use models\Session;
 use models\SmartyClass;
 use models\ExeptionMy;
+use models\ExeptionPDOMy;
 
 require_once("../../index.php");
 
@@ -21,9 +22,12 @@ try {
             throw new ExeptionMy("Не передан путь к лог-файлу.");
         }
     }
+} catch (ExeptionPDOMy $e) {
+    $session->message("Error on the {$e->getLine()}-lines. Info about:\n{$e->getMessage()}.\nPath: {$e->getFile()}\n\n");
+    redirectTo("adminindex.php");
 } catch (ExeptionMy $e) {
     $session->message($e->getMessage());
-    redirectTo('adminindex.php');
+    redirectTo("logfile.php");
 }
 
 /**

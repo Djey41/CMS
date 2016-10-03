@@ -33,9 +33,7 @@ try {
         $author = escapeValue($_POST['author']);
         $body = escapeValue($_POST['body']);
 
-        if (!$new_comment = Comment::make($photo->id, $author, $body)) {
-            throw new ExeptionMy("Комментарий не получен.");
-        }
+        $new_comment = Comment::make($photo->id, $author, $body);
         $new_comment->saveDB();
         $new_comment->tryToSendNotification();
         redirectTo("gallery.php");
@@ -62,7 +60,7 @@ try {
     $action = " Error on the {$e->getLine()}-lines. Info about";
     $body = "\n{$e->getMessage()}.\nPath: {$e->getFile()}\n\n";
     logAction(LOG_PATH, $action, $body);
-    redirectTo('posts_cap.html');
+    redirectTo('/posts_cap.html');
 }catch (ExeptionMy $e) {
     $session->message($e->getMessage());
     $action = " Error on the {$e->getLine()}-lines. Info about";

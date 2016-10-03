@@ -1,5 +1,5 @@
 {include file="./header.tpl"}
-<a href="{$path}">&laquo; Back</a><br />
+<a href="{$path}">&laquo; Назад</a><br />
 <br />
 
 <div style="margin-left: 20px;">
@@ -11,7 +11,7 @@
     {foreach from=$comments item=comment}
     <div class="comment" style="margin-bottom: 2em;">
         <div class="author">
-            {htmlentities($comment->author)} wrote:
+            {htmlentities($comment->author)} написал:
         </div>
         <div class="body">
             {strip_tags($comment->body, '<strong><em><p>')}
@@ -21,14 +21,14 @@
         </div>
     </div>
     {/foreach}
-    {if empty($comments)}No Comments.{/if}
+    {if empty($comments)}Комментариев нет.{/if}
 </div>
 
 <div id="pagination" style="clear: both;">
     {if $pagination->totalPages() > 1}
 
         {if $pagination->hasPreviousPage()}
-            <a href="photo.php?page={$pagination->previousPage()}">&laquo; Previous</a>
+            <a href="photo.php?page={$pagination->previousPage()}">&laquo; Взад</a>
         {/if}
         {*assign var="total_pages" value=$pagination->total_pages()+1*}
 
@@ -44,7 +44,7 @@
         {/section}
         {*$pagination->has_next_page()*}
         {if $pagination->hasNextPage()}
-            <a href="photo.php?page={$pagination->nextPage()}">Next &raquo;</a>
+            <a href="photo.php?page={$pagination->nextPage()}">Вперед &raquo;</a>
         {/if}
         <form action="photo.php" method="GET">
 
@@ -57,7 +57,7 @@
 
 
 <div id="comment-form">
-    <h3>New Comment</h3>
+    <h3>Новый комментарий</h3>
     <strong class="error">{outputMessage($message)}</strong>
     <form action="photo.php?id={$photo->id}" method="post">
         <table>

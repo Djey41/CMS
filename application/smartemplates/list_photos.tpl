@@ -49,7 +49,7 @@
     {if $pagination->totalPages() > 1}
 
         {if $pagination->hasPreviousPage()}
-            <a href="list_photos.php?page={$pagination->previousPage()}">&laquo; Туда</a>
+            <a href="list_photos.php?page={$pagination->previousPage()}">&laquo; Взад</a>
         {/if}
         {*assign var="total_pages" value=$pagination->total_pages()+1*}
 
@@ -65,7 +65,7 @@
         {/section}
 
         {if $pagination->hasNextPage()}
-            <a href="list_photos.php?page={$pagination->nextPage()}">Сюда &raquo;</a>
+            <a href="list_photos.php?page={$pagination->nextPage()}">Вперед &raquo;</a>
         {/if}
         <form action="list_photos.php" method="GET">
 

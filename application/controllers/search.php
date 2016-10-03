@@ -58,7 +58,7 @@ try {
     $action = " Error on the {$e->getLine()}-lines. Info about";
     $body = "\n{$e->getMessage()}.\nPath: {$e->getFile()}\n\n";
     logAction(LOG_PATH, $action, $body);
-    redirectTo('posts_cap.html');
+    redirectTo('/posts_cap.html');
 } catch(ExeptionMy $e) {
     $action = " Error on the {$e->getLine()}-lines. Info about";
     $body = "\n{$e->getMessage()}.\nPath: {$e->getFile()}\n\n";

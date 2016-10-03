@@ -151,7 +151,7 @@ class DBCore
         private static function confirmQuery($result)
         {
             if (empty($result)) {
-                throw new ExeptionPDOMy("Response \"" . self::$last_query . "\" wasn't to return a data");
+                throw new ExeptionPDOMy("Request \"" . self::$last_query . "\" didn't return a data");
             }
         }
 

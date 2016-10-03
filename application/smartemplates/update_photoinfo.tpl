@@ -1,5 +1,5 @@
 {include file="./header.tpl"}
-<a href="list_photos.php">&laquo; Back</a><br />
+<a href="list_photos.php">&laquo; Назад</a><br />
 <br />
 
 <div style="margin-left: 20px;">
@@ -9,7 +9,7 @@
 
 
 <div id="comment-form">
-    <h3>New Parameters</h3>
+    <h3>Новые параметры:</h3>
     {*output_message($message)*}
     <form action="update_photoinfo.php?id={$photoup->id}" method="POST">
         <table>

@@ -5,6 +5,7 @@ use models\ {
        SmartyClass,
        Pagination,
        ExeptionPDOMy,
+        ExeptionMy,
        ListPhotoClass
 };
 
@@ -25,8 +26,11 @@ try {
     $photos = ListPhotoClass::getListPhoto($pagination);
 
 } catch (ExeptionPDOMy $e) {
-    $session->message($e->getMessage());
+    $session->message("Error on the {$e->getLine()}-lines. Info about:\n{$e->getMessage()}.\nPath: {$e->getFile()}\n\n");
     redirectTo("adminindex.php");
+} catch (ExeptionMy $e) {
+    $session->message($e->getMessage());
+    redirectTo("list_photos.php");
 }
 /**
  * Block template

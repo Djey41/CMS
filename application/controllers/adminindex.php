@@ -6,16 +6,16 @@ use models\ {
 
 require_once('../../index.php');
 
-$session = new Session();
-$message = $session->message();
-if (!$session->isLoggedIn()) { redirectTo("login.php"); }
+    $session = new Session();
+    $message = $session->message();
+    if (!$session->isLoggedIn()) { redirectTo("login.php"); }
 
-/**
- * Block template
- */
+    /**
+     * Block template
+     */
 
-$smarty = new SmartyClass();
-$smarty->assign('message', $message);
-$smarty->display('C:\OpenServer\domains\photogallery\application\smartemplates\adminindex.tpl');
+    $smarty = new SmartyClass();
+    $smarty->assign('message', $message);
+    $smarty->display('C:\OpenServer\domains\photogallery\application\smartemplates\adminindex.tpl');
 
 //if (isset(CoreDatabase::$db)) { CoreDatabase::$db->closeConnection(); }

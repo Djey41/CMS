@@ -37,10 +37,11 @@ try {
         $photo->save();
         redirectTo('list_photos.php');
      }
-} catch (ExeptionMy $e) {
+
+} catch (ExeptionUploadMy $e) {
     $session->message($e->getMessage());
     redirectTo('photo_upload.php');
-} catch (ExeptionUploadMy $e) {
+} catch (ExeptionMy $e) {
     $session->message($e->getMessage());
     redirectTo('photo_upload.php');
 }
