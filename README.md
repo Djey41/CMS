@@ -1,1 +1,1 @@
-Photo gallery made on php, used Linda Course.
+This is a photo gallery.
